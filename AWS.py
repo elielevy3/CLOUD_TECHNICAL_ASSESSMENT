@@ -5,7 +5,7 @@ import random as rd
 st.set_page_config(page_title="WEWYSE AWS TRAINING", page_icon="📚")
 st.markdown("# 📚 WELCOME TO WEWYSE AWS TRAINING !")
 
-@st.experimental_memo
+@st.cache_data
 def get_sample_question(data, nb_of_questions):
     return rd.sample(range(1, len(data)), nb_of_questions)
 
@@ -21,8 +21,8 @@ questions = get_sample_question(data, nb_of_questions=n)
 
 # button to restart test
 if st.sidebar.button("Restart test ? "):
-    st.experimental_memo.clear()
-    st.experimental_rerun()
+    st.cache_data.clear()
+    st.rerun()
 
 submitted_answers = []
 explanations = []
